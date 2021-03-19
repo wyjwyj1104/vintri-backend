@@ -54,10 +54,9 @@ $ npm start
 ```
 
 * **Basic Auth:** Username: "admin", Password: "qwe123"
-* **Get beer by name (1):** GET http://localhost:3000/beers?name=Bad
-* **Add beer rating by ID (1):** PUT http://localhost:3000/beers/6054564a15ad51a92e9b4c5c?rating=1
-
-
+* **Get beer by name:** GET http://localhost:3000/beers?name=Bad
+* **Get all beers list:** GET http://localhost:3000/beers/all
+* **Add beer rating by ID:** PUT http://localhost:3000/beers/6054564a15ad51a92e9b4c5c?rating=1
 
 ## Fundamentals
 
