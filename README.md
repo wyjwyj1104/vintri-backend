@@ -82,5 +82,5 @@ $ kill -9 PID
 - [X] Task 1: Add a REST endpoint to retrieve a list of beers
 - [X] Task 2: Add a REST endpoint to allow a user to add a rating to a beer.
 - [X] Task 3: Create an express middleware module.
-- [] Task 4: Unit tests Add applicable unit tests to the express middleware module in Task 3.
+- [X] Task 4: Unit tests Add applicable unit tests to the express middleware module in Task 3.
 ```
