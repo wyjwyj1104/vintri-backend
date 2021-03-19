@@ -3,7 +3,8 @@
 `backend-api` 3rd party API to create an express.js base API.
 * Note: All error handling are placed with error code 500 internal server error for consistency.
 * Start date: 202103180100
-* V0: 202103180112 Project setup.
+* V0: 202103181112 Project setup.
+* V1: 202103180116 Endpoint tested.
 
 
 ## Source
