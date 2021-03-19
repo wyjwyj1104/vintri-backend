@@ -1,0 +1,47 @@
+Requirements
+Create an Express.js/Node.js project and implement the following 6 tasks.
+
+Task 1: Add a REST endpoint to retrieve a list of beers.
+This endpoint should accept one parameter in the query string of the request. The purpose of this parameter is to denote the name of the beer to search for. The endpoint will use the publicly available Punk API to find all beers matching the search parameter described above.
+The response should be a JSON object containing the following properties from the Punk API response:
+id, name, description, first_brewed, food_pairings
+
+Task 2: Add a REST endpoint to allow a user to add a rating to a beer.
+The endpoint should accept an id parameter and JSON request body which includes the following properties: rating, comments Add validation to ensure the id parameter is a valid beer id and the rating is a valid value in the range of 1 to 5. Use the embedded database 'nosql' node module to persist this beer rating to the database.
+
+Task 3: Create an express middleware module.
+This module should intercept all requests made to your rest API and perform the following:
+Validate that the request has a 'x-user' header parameter containing a valid formatted email address (minimum validation: contains an @ symbol and a period to denote the presence of a domain). If the header is not present or the value is not considered to be a valid email address an error response should be returned by the API.
+Add request logging by persisting the x-user header and request details to the embedded 'no-sql' database.
+
+Task 4: Unit tests Add applicable unit tests to the express middleware module in Task 3.
+The preferred testing frameworks to use are mocha, chai and sinon, but you are free to use other testing frameworks if you prefer.
+Put the tests in that you think cover the important parts, or what you feel would add to the overall "product quality" of this app.
+
+Task 5: Add caching support.
+Enhance the first REST endpoint for retrieving beers to support result caching.
+Cache the results of queries made to the Punk API so when a user searches for a beer you can interrogate the cache first before deciding to request the results from Punk.
+The memory-cache module provided in the resources section can be used but you are also free to use any caching module of your choice.
+
+Task 6: Add a Vue.js front end to view/use your API.
+Show us your style, creativity, and demonstrate your understanding of user experience and user interface design.
+
+Bonus (not required): Add UI tests to the Vue.js front end.
+Use whatever you would like for these tests.
+
+Tips
+- Don't worry about making things simple for the reviewers, show your technical capabilities!
+- Treat this test like you would a product that you own and is going to a client.
+- Feel free to pepper your code with comments about decisions and reasoning if you don't like the implementation or think things could be better.
+
+How will we see it your test results?
+Put your results up somewhere we can view it, github, bitbucket, launchpad, jsfiddle, as code, live, whatever works for you. We will want to review the source code and final product (yes, we can install/compile locally) - be sure to include all required instructions needed. Documentation and communications will be evaluated as well as code. Please include a link to your online portfolio that shows any other code or examples of your work that you would like to share.
+
+If you have any questions, feel free to contact me.
+
+What we are looking for
+Working example in Express.js on Node.js demonstrating your knowledge of and ability to build a great RESTFul API.
+Working UI showing your ability to create user friendly interfaces that are functional and look good.
+Submitted to us by Monday March 15th (or sooner if you like)
+
+Feel free to reach out to me with any questions or feedback on this assignment or anything to do with the position or Vintri.
