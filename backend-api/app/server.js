@@ -40,6 +40,7 @@ app.get('/', basicAuthentication, function(req, res) {
 });
 
 app.get('/beers', basicAuthentication, validators.getBeers, beers.getBeers);
+app.get('/beers/all', basicAuthentication, beers.getAllBeers);
 app.put('/beers/:id', basicAuthentication, validators.addBeersRating, beers.addBeersRating);
 
 // NODE_ENV=dev  nodemon server.js

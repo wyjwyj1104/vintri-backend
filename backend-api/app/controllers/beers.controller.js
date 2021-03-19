@@ -18,10 +18,8 @@ const getStringDataFromURL = async (url) => {
   return data.data;
 }
 
-const getBeersDataByName = async (url, name) => {
+const getBeersData = async (url) => {
   if (!url || url.length === 0)
-    return null;
-  if (!name)
     return null;
   let data;
   try {
@@ -52,14 +50,8 @@ const getBeersDataByName = async (url, name) => {
 const getBeers = async (req, res) => {
   const beerName = req.query.name;
   try {
-    let beers = await getBeersDataByName(configs.TESTING_SITE_URL, beerName);
-    let result = beers.filter((obj) => obj.name.includes(beerName));
-    for (let i = 0; i < result.length; i++) {
-      let beer = result[i];
-      let first_brewed = moment(beer.first_brewed, configs.DATE_FORMAT);
-      let first_brewed_date = first_brewed.toDate();
-      result = await beersService.saveData(beer.name, beer.description, first_brewed_date, beer.food_pairing);
-    }
+    let beers = await beersService.getAllBeers();
+    let result = beers.filter((obj) => obj.name.toLowerCase().includes(beerName.toLowerCase()));
     return res.status(200).json(result);
   } catch (e) {
     return res.status(500).json({
@@ -68,6 +60,36 @@ const getBeers = async (req, res) => {
   }
 };
 //==============================================================================
+
+const saveAllBeers = async (req, res) => {
+  try {
+    let beers = await getBeersData(configs.TESTING_SITE_URL);
+    for (let i = 0; i < beers.length; i++) {
+      let beer = beers[i];
+      let first_brewed = moment(beer.first_brewed, configs.DATE_FORMAT);
+      let first_brewed_date = first_brewed.toDate();
+      await beersService.saveData(beer.name, beer.description, first_brewed_date, beer.food_pairing);
+    }
+    beers = await beersService.getAllBeers();
+
+    return res.status(200).json(beers);
+  } catch (e) {
+    return res.status(500).json({
+      message: errorMessages.ERROR_INTERNAL_SERVER
+    });
+  }
+};
+
+const getAllBeers = async (req, res) => {
+  try {
+    const beers = await beersService.getAllBeers();
+    return res.status(200).json(beers);
+  } catch (e) {
+    return res.status(500).json({
+      message: errorMessages.ERROR_INTERNAL_SERVER
+    });
+  }
+};
 
 //==============================================================================
 // Task: 2
@@ -99,5 +121,7 @@ const addBeersRating = async (req, res) => {
 
 module.exports = {
   getBeers,
+  saveAllBeers,
+  getAllBeers,
   addBeersRating
 };

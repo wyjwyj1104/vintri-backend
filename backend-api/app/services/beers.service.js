@@ -25,6 +25,18 @@ const saveData = async (name, description, first_brewed, food_pairings) => {
   }
 };
 
+const getAllBeers = async () => {
+  try {
+    return await Beer.find({}).lean();
+  } catch (e) {
+    logger.error('Cannot add rating', e);
+    throw {
+      code: 500,
+      message: errorMessages.ERROR_INTERNAL_SERVER
+    };
+  }
+};
+
 const addBeersRating = async (id, rating) => {
   const findBeer = await Beer.findOne({
     _id: id
@@ -54,5 +66,6 @@ const addBeersRating = async (id, rating) => {
 
 module.exports = {
   saveData,
+  getAllBeers,
   addBeersRating
 };
