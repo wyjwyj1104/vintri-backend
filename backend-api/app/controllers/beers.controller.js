@@ -43,7 +43,7 @@ const getBeersData = async (url) => {
 // Task: 1
 // ROUTE: http://localhost:3000/beers
 // PRE-CONDITION:
-//    @query x-user  Email
+//    @header x-user  Email
 //    @query name    String
 // POST-CONDITION:
 //    {"id":1,"name":"Buzz","tagline":"A Real Bitter Experience.", ...
@@ -96,7 +96,7 @@ const getAllBeers = async (req, res) => {
 // ROUTE: http://localhost:3000/beers/:id
 // PRE-CONDITION:
 //    @params  id      String
-//    @query   x-user  Email
+//    @header   x-user  Email
 //    @query   rating  Number (1-5)
 // POST-CONDITION:
 //    {"id":1,"name":"Buzz","tagline":"A Real Bitter Experience.", ..., "rating": 2
