@@ -1,6 +1,6 @@
 ## Introduction
 
-`backend-api` 3rd party API to create an express.js base API.
+`vintri_backend` 3rd party API to create an express.js base API.
 * Note: All error handling are placed with error code 500 internal server error for consistency.
 * Start date: 202103181100
 * V0: 202103181112 Project setup.
